@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  sdxl:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        HUGGINGFACE_TOKEN: ${HUGGINGFACE_TOKEN}
+    environment:
+      HUGGINGFACE_TOKEN: ${HUGGINGFACE_TOKEN}
