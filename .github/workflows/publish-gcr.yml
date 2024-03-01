@@ -70,7 +70,7 @@ jobs:
           images: |
             ${{ env.REGISTRY }}/${{env.IMAGE_NAME}}
             ${{ env.REGISTRY }}/sdxl
-            ${{ env.REGISTRY}}/${{github.repository_owner}}/stable-diffision
+            ${{ env.REGISTRY}}/${{github.repository_owner}}/stable-diffusion
 
           tags: |
             type=schedule
