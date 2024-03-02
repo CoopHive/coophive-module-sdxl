@@ -69,7 +69,7 @@ RUN . venv/bin/activate
 # it for every inference.
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
-    apt-get update -y && apt-get install -y python3.10 python3-pip git libgl1-mesa-glx libglib2.0-0 
+    apt-get update -y && apt-get install -y git libgl1-mesa-glx libglib2.0-0 
 
 # TODO: cache:
 # pipe.unet = torch.compile(pipe.unet, mode="reduce-overhead", fullgraph=True)
@@ -82,4 +82,4 @@ ENV RANDOM_SEED=40
 COPY --from=hf-builder /app/.huggingface $HF_HOME
 
 ADD inference.py /app/inference.py
-ENTRYPOINT ["python3.10", "/app/inference.py"]
+ENTRYPOINT ["venv/bin/python3", "/app/inference.py"]
