@@ -22,7 +22,7 @@
                 "Image": "quay.io/lukemarsden/sdxl:v0.9-lilypad1-v2",
                 "EnvironmentVariables": [
                     {{if .Prompt}}"{{ subt "PROMPT=%s" .Prompt }}"{{else}}"PROMPT=a swarm of hi-tech bees building a futuristic hive"{{end}},
-                    {{if .Seed}}"{ {subt "RANDOM_SEED=%d" .Seed }}"{{else}}"RANDOM_SEED=42"{{end}},
+                    {{if .Seed}}"{{ subt "RANDOM_SEED=%d" .Seed }}"{{else}}"RANDOM_SEED=42"{{end}},
                     "OUTPUT_DIR=/outputs/",
                     "HF_HUB_OFFLINE=1"
                 ]
