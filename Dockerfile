@@ -15,6 +15,8 @@ RUN mkdir -p /outputs
 # it for every inference.
 ADD requirements.txt /app/requirements.txt
 
+ENV PIP_TIMEOUT=1000
+
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update -y && apt-get install -y python3 python3-pip git libgl1-mesa-glx libglib2.0-0 && \
     pip3 install -r requirements.txt && \
