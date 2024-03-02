@@ -28,6 +28,8 @@ RUN echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf && \
 
 RUN python3 -m pip install --upgrade pip
 
+RUN poetry config installer.max-workers 16
+
 # Install project dependencies using Poetry
 RUN poetry install --no-root
 
