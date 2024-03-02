@@ -1,5 +1,5 @@
 include .env
-
+export 
 dc:
 	docker-compose up
 
@@ -7,6 +7,8 @@ gh:
 	alias docker='sudo docker $@'
 	git pull && make dc
 
+d:
+	docker build -t app --build-arg HUGGINGFACE_TOKEN=$HUGGINGFACE_TOKEN . 
 
 docker:
 	docker buildx build -t sdxl:${tag} --build-arg HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN} .
