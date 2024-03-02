@@ -5,6 +5,12 @@ ARG HUGGINGFACE_TOKEN
 RUN mkdir /app
 WORKDIR /app
 
+
+RUN mkdir -p /inputs 
+RUN mkdir -p /outputs
+
+
+
 # Install lora and pre-cache stable diffusion xl 0.9 model to avoid re-downloading
 # it for every inference.
 ADD requirements.txt /app/requirements.txt
@@ -22,6 +28,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 
 ENV HF_DATASETS_OFFLINE=1 
 ENV TRANSFORMERS_OFFLINE=1 
+ENV OUTPUT_DIR="/outputs/"
+ENV RANDOM_SEED=40
 
 ADD inference.py /app/inference.py
 ENTRYPOINT ["python3", "/app/inference.py"]
