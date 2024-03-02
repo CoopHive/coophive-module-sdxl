@@ -57,7 +57,6 @@ ENV HF_HOME=/app/.huggingface
 RUN mkdir -p /inputs 
 RUN mkdir -p /outputs
 
-COPY --from=hf-builder /app/.huggingface $HF_HOME
 
 # Copy dependencies from the builder stage
 COPY --from=builder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
@@ -79,6 +78,8 @@ ENV HF_DATASETS_OFFLINE=1
 ENV TRANSFORMERS_OFFLINE=1 
 ENV OUTPUT_DIR="/outputs/"
 ENV RANDOM_SEED=40
+
+COPY --from=hf-builder /app/.huggingface $HF_HOME
 
 ADD inference.py /app/inference.py
 ENTRYPOINT ["python3.10", "/app/inference.py"]
