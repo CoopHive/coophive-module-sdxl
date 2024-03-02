@@ -7,9 +7,14 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
+invisible_watermark = "0.2.0"
+transformers = "4.30.2"
+accelerate = "0.21.0"
+safetensors = "0.3.1"
+diffusers = "0.18.2"
+
+
 python = "^3.10"
-
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
