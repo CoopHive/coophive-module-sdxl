@@ -45,7 +45,7 @@ COPY --from=builder /app/.venv /app/venv
 
 RUN pip3 install huggingface_hub==0.16.4 
 RUN huggingface-cli login --token $HUGGINGFACE_TOKEN 
-RUN python3 -c 'from diffusers import DiffusionPipeline; import torch; DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-0.9", torch_dtype=torch.float16, use_safetensors=True, variant="fp16")' 
+RUN venv/bin/python3 -c 'from diffusers import DiffusionPipeline; import torch; DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-0.9", torch_dtype=torch.float16, use_safetensors=True, variant="fp16")' 
 RUN rm $HF_HOME/token
 
 FROM nvidia/cuda:11.6.2-base-ubuntu20.04
