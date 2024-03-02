@@ -38,7 +38,9 @@
                 "Type": "IPFS"
             },
             "Resources": {
-                "GPU": "1"
+               "GPU": "1",
+               "RAM": "3000",
+               "CPU": "2"
             },
             "Timeout": 1800,
             "Verifier": "Noop",
