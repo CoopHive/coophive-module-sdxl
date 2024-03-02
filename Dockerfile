@@ -32,7 +32,7 @@ COPY pyproject.toml poetry.lock ./
 # Install project dependencies using Poetry
 RUN poetry install --no-root
 
-FROM nvidia/cuda:11.6.2
+FROM nvidia/cuda:11.6.2-base-ubuntu20.04
 
 RUN mkdir /app
 WORKDIR /app
