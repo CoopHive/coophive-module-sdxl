@@ -1,7 +1,7 @@
 include .env
 
 dc:
-	sudo docker-compose up
+	docker-compose up
 
 gh:
 	alias docker='sudo docker $@'
