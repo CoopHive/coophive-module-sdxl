@@ -4,7 +4,7 @@ USER root
 
 WORKDIR /app
 
-ENV PIP_TIMEOUT=1000
+ENV PIP_TIMEOUT=1000000
 
 # Install Poetry
 RUN pip install poetry
