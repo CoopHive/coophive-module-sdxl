@@ -36,9 +36,12 @@ FROM nvidia/cuda:11.6.2
 
 RUN mkdir /app
 WORKDIR /app
+ENV HF_HOME=/app/.huggingface
 
 RUN mkdir -p /inputs 
 RUN mkdir -p /outputs
+
+COPY --from=hf-builder /app/.huggingface $HF_HOME
 
 # Copy dependencies from the builder stage
 COPY --from=builder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
