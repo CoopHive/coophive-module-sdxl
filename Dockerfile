@@ -26,6 +26,7 @@ COPY pyproject.toml poetry.lock ./
 RUN echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf && \
     echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
 
+RUN python3 -m pip install --upgrade pip
 
 # Install project dependencies using Poetry
 RUN poetry install --no-root
