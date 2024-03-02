@@ -16,6 +16,8 @@ ENV POETRY_VIRTUALENVS_OPTIONS_NO_SETUPTOOLS=true
 # Copy only the dependency-related files
 COPY pyproject.toml poetry.lock ./
 
+RUN sysctl -w net.ipv6.conf.all.disable_ipv6=1
+RUN sysctl -w net.ipv6.conf.default.disable_ipv6=1
 # Install project dependencies using Poetry
 RUN poetry install --no-root
 
