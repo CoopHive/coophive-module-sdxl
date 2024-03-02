@@ -39,7 +39,7 @@
             },
             "Resources": {
                "GPU": "1",
-               "RAM": "3000",
+               "Memory": "3000",
                "CPU": "2"
             },
             "Timeout": 1800,
