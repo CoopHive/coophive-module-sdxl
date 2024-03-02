@@ -17,3 +17,9 @@ docker run -ti --gpus all \
     sdxl:v0.9
 ```
 Will overwrite `outputs/image0.png` each time.
+
+### Coophive Module
+
+```
+hive run sdxl:v1.0.0-alpha.2 -i Prompt="hiro saves the hive" -i Seed=20
+```
