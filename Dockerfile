@@ -20,5 +20,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 # TODO: cache:
 # pipe.unet = torch.compile(pipe.unet, mode="reduce-overhead", fullgraph=True)
 
+ENV HF_DATASETS_OFFLINE=1 
+ENV TRANSFORMERS_OFFLINE=1 
+
 ADD inference.py /app/inference.py
 ENTRYPOINT ["python3", "/app/inference.py"]
