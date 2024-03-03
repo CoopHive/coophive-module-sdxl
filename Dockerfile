@@ -46,6 +46,9 @@ RUN huggingface-cli login --token $HUGGINGFACE_TOKEN
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=builder /app/.venv /app/venv
 
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get update -y && apt-get install -y git libgl1-mesa-glx libglib2.0-0 
+
 RUN venv/bin/python3 -c 'from diffusers import DiffusionPipeline; import torch; DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-0.9", torch_dtype=torch.float16, use_safetensors=True, variant="fp16")' 
 RUN rm $HF_HOME/token
 
