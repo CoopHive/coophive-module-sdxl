@@ -1,4 +1,4 @@
-FROM python:3.10 AS builder
+FROM python:3.11 AS builder
 
 USER root
 
@@ -33,7 +33,7 @@ RUN poetry config installer.max-workers $(grep -c ^processor /proc/cpuinfo)
 # Install project dependencies using Poetry
 RUN poetry install --no-root
 
-FROM python:3.10-slim AS hf-builder
+FROM python:3.11-slim AS hf-builder
 
 ARG HUGGINGFACE_TOKEN
 
@@ -43,7 +43,7 @@ ENV HF_HOME=/app/.huggingface
 RUN pip3 install huggingface_hub==0.16.4 
 RUN huggingface-cli login --token $HUGGINGFACE_TOKEN 
 
-COPY --from=builder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
+COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=builder /app/.venv /app/venv
 
 RUN venv/bin/python3 -c 'from diffusers import DiffusionPipeline; import torch; DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-0.9", torch_dtype=torch.float16, use_safetensors=True, variant="fp16")' 
@@ -60,7 +60,7 @@ RUN mkdir -p /outputs
 
 
 # Copy dependencies from the builder stage
-COPY --from=builder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
+COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=builder /app/.venv /app/venv
 
 # Activate the virtual environment
