@@ -24,5 +24,10 @@ tag:
 	docker tag sdxl:${tag} laciferin/sdxl:${tag}
 	docker push laciferin/sdxl:${tag}
 
+all:
+	# docker build is enough for the amd64 arch
+	docker build -t sdxl:${tag} --build-arg HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN} . 
+	make tag
+
 
 .PHONY: docker gh dc tag
