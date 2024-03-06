@@ -4,14 +4,13 @@ USER root
 
 WORKDIR /app
 
+RUN apt update -y && \
+  apt install -y software-properties-common && \
+  add-apt-repository ppa:deadsnakes/ppa -y && \
+  apt update -y && \
+  apt install -y python3.11-full
+
 ENV PIP_TIMEOUT=1000
-
-
-RUN apt update  \
-  add-apt-repository ppa:deadsnakes/ppa -y \
-  apt update \
-  apt install python3.11-full
-
 ENV PYTHONHTTPSVERIFY=0
 
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
