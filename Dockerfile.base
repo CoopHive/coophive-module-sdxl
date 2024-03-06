@@ -1,4 +1,4 @@
-FROM python:3.11 AS builder
+FROM ubuntu:20.04 AS builder
 
 USER root
 
@@ -6,8 +6,11 @@ WORKDIR /app
 
 ENV PIP_TIMEOUT=1000
 
-# Install Poetry
-RUN pip install poetry
+
+RUN apt update  \
+  add-apt-repository ppa:deadsnakes/ppa -y \
+  apt update \
+  apt install python3.11-full
 
 ENV PYTHONHTTPSVERIFY=0
 
