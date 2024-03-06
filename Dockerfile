@@ -1,4 +1,5 @@
-FROM laciferin/coophive-sdxl-base:latest as builder
+FROM laciferin/coophive-sdxl-base:latest as builder 
+# is Dockerfile.base
 
 FROM python:3.11-slim AS hf-builder
 
