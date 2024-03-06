@@ -1,9 +1,17 @@
-FROM laciferin/coophive-sdxl-base:latest as builder 
+FROM laciferin/coophive-sdxl-base:ubuntu-latest as builder 
 # is Dockerfile.base
 
-FROM python:3.11-slim AS hf-builder
+FROM ubuntu:20.04 AS hf-builder
 
 ARG HUGGINGFACE_TOKEN
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt update -y && \
+    apt install -y software-properties-common && \
+    add-apt-repository ppa:deadsnakes/ppa -y && \
+    apt update -y && \
+    apt install -y python3.11-full python3-pip
 
 WORKDIR /app
 ENV HF_HOME=/app/.huggingface
