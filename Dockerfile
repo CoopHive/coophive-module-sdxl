@@ -11,7 +11,7 @@ RUN apt update -y && \
     apt install -y software-properties-common && \
     add-apt-repository ppa:deadsnakes/ppa -y && \
     apt update -y && \
-    apt install -y python3.11-full python3-pip
+    apt install -y python3.11-full 
 
 WORKDIR /app
 ENV HF_HOME=/app/.huggingface
