@@ -4,11 +4,13 @@ USER root
 
 WORKDIR /app
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt update -y && \
   apt install -y software-properties-common && \
   add-apt-repository ppa:deadsnakes/ppa -y && \
   apt update -y && \
-  apt install -y python3.11-full
+  apt install -y python3.11-full python3-pip
 
 ENV PIP_TIMEOUT=1000
 ENV PYTHONHTTPSVERIFY=0
