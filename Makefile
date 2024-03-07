@@ -24,8 +24,8 @@ tag:
 
 
 jobFile="./module.json"
-
+outDir="./output"
 b: 
-	bacalhau create --wait  --download --wait-timeout-secs 600 ${jobFile}
+	bacalhau create --wait  --download --wait-timeout-secs 600 --output-dir ${outDir} ${jobFile}
 
 .PHONY: docker gh dc tag b dockerv1 tag
