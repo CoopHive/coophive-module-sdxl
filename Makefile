@@ -29,5 +29,9 @@ all:
 	docker build -t sdxl:${tag} --build-arg HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN} . 
 	make tag
 
+rebrandDocker:
+	docker build -f Dockerfile.rebrand -t sdxl:${tag} . 
+	make all
+
 
 .PHONY: docker gh dc tag
