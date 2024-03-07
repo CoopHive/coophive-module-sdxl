@@ -23,4 +23,9 @@ tag:
 	docker push laciferin/sdxl:${tag}
 
 
-.PHONY: docker gh dc tag
+jobFile="./module.json"
+
+b: 
+	bacalhau create --wait --wait-timeout-secs 600 ${jobFile}
+
+.PHONY: docker gh dc tag b dockerv1 tag
