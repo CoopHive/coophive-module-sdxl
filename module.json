@@ -14,7 +14,7 @@
       "Type": "Ipfs"
     },
     "Docker": {
-      "Image": "laciferin/sdxl:v1.0.0",
+      "Image": "quay.io/lukemarsden/sdxl:v0.9-lilypad1-v2",
       "Entrypoint": [
         "bash",
         "-c",
@@ -31,6 +31,8 @@
       "EntryModule": {}
     },
     "Resources": {
+      "CPU": "3",
+      "Memory": "3gb",
       "GPU": "1"
     },
     "Network": {
