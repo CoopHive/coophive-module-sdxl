@@ -1,0 +1,53 @@
+{
+  "APIVersion": "V1beta1",
+  "Metadata": {
+    "CreatedAt": "0001-01-01T00:00:00Z",
+    "Requester": {}
+  },
+  "Spec": {
+    "Engine": "Docker",
+    "EngineSpec": {
+      "Type": "",
+      "Params": null
+    },
+    "PublisherSpec": {
+      "Type": "Ipfs"
+    },
+    "Docker": {
+      "Image": "quay.io/lukemarsden/sdxl:v0.9-lilypad1-v2",
+      "Entrypoint": [
+        "bash",
+        "-c",
+        "python3 inference.py 2\u003e/dev/null"
+      ],
+      "EnvironmentVariables": [
+        "PROMPT=a swarm of hi-tech bees building a futuristic hive",
+        "RANDOM_SEED=42",
+        "OUTPUT_DIR=/outputs/",
+        "HF_HUB_OFFLINE=1"
+      ]
+    },
+    "Wasm": {
+      "EntryModule": {}
+    },
+    "Resources": {
+      "CPU": "3",
+      "Memory": "3gb",
+      "GPU": "1"
+    },
+    "Network": {
+      "Type": "None"
+    },
+    "Timeout": 1800,
+    "Outputs": [
+      {
+        "StorageSource": "IPFS",
+        "Name": "outputs",
+        "Path": "/outputs"
+      }
+    ],
+    "Deal": {
+      "Concurrency": 1
+    }
+  }
+}
