@@ -1,8 +1,8 @@
 {
     "machine": {
         "gpu": 1,
-        "ram": 3000,
-        "cpu": 2000
+        "ram": 100,
+        "cpu": 1000
     },
     "job": {
         "APIVersion": "V1beta1",
@@ -38,9 +38,9 @@
                 "Type": "IPFS"
             },
             "Resources": {
-               "GPU": "1",
-               "Memory": "3072mb",
-               "CPU": "2"
+                "CPU": "3",
+                "Memory": "3gb",
+                "GPU": "1"
             },
             "Timeout": 1800,
             "Verifier": "Noop",
