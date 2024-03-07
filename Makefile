@@ -31,7 +31,7 @@ all:
 
 rebrandDocker:
 	docker build -f Dockerfile.rebrand -t sdxl:${tag} . 
-	make all
+	make tag
 
 
 .PHONY: docker gh dc tag
