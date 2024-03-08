@@ -25,5 +25,5 @@ Will overwrite `outputs/image0.png` each time.
 ### Coophive Module
 
 ```
-hive run sdxl:v0.2.10 -i PromptEnv="PROMPT=hiro saves the hive" -i SeedEnv="RANDOM_SEED=42"
+hive run sdxl:v0.3.0 -i Prompt="hiro saves the hive" -i Seed=16
 ```
