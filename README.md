@@ -16,7 +16,7 @@ mkdir -p outputs
 docker run -ti --gpus all \
     -v $PWD/outputs:/outputs \
     -e OUTPUT_DIR=/outputs/ \
-    -e PROMPT="an astronaut riding an orange horse" \
+    -e PROMPT="bees gathering nectar in a field of flowers" \
     sdxl:v0.9
 ```
 
@@ -25,5 +25,5 @@ Will overwrite `outputs/image0.png` each time.
 ### Coophive Module
 
 ```
-hive run sdxl:v0.3.0 -i Prompt="hiro saves the hive" -i Seed=16
+hive run sdxl:v0.3.0 -i Prompt="bees gathering nectar in a field of flowers" -i Seed=16
 ```
