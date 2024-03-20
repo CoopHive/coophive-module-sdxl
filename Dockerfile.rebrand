@@ -1,0 +1,13 @@
+FROM quay.io/lukemarsden/sdxl:v0.9-lilypad1-v2
+
+WORKDIR /app
+
+RUN mkdir -p /inputs 
+RUN mkdir -p /outputs
+
+ENV HF_DATASETS_OFFLINE=1 
+ENV TRANSFORMERS_OFFLINE=1 
+ENV OUTPUT_DIR="/outputs/"
+ENV RANDOM_SEED=40
+
+ENTRYPOINT ["python3", "/app/inference.py"]
